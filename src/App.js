@@ -7,6 +7,7 @@ import Youtube from "./components/pages/Youtube";
 import Movie from "./components/pages/Movie";
 import Contact from "./components/pages/Contact";
 import Portfolio from "./components/pages/Portfolio";
+import ReferDetail from "./components/pages/ReferDetail";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
         <Route path="/reference" element={<Reference />} />
+        <Route path="reference/refer-detail" element={<ReferDetail />} />
         <Route path="/youtube" element={<Youtube />} />
         <Route path="/movie" element={<Movie />} />
         <Route path="/contact" element={<Contact />} />
