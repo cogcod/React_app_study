@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ContactCont from "../includes/ContactCont";
 import Contents from "../layout/Contents";
 
