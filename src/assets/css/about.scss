@@ -1,82 +1,70 @@
-// header
-#header {
-  color: var(--white);
-  border-bottom: 1px solid var(--light_border);
-  background-color: var(--dark_bg);
-}
-
-// title
-.cont__title {
-  color: var(--white);
-  background-color: var(--dark_bg);
-}
-
-// about
 .about__cont {
-  background: var(--light_bg);
+  background-color: var(--black);
+}
 
-  .container {
-    .about__inner {
-      .about {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding-bottom: 30vh;
-        font-family: var(--kor_font);
-        color: var(--black);
+.about__inner {
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 30vh;
+    color: var(--white);
+    font-family: var(--kor_font);
 
-        .about__img {
-          display: block;
-          img {
-            width: 100%;
-            vertical-align: top;
-          }
-        }
+    h3 {
+      margin-bottom: 30px;
+      font-size: 1rem;
+      line-height: 1;
+    }
 
-        .about__txt {
-          h3 {
-            font-weight: 400;
-            font-size: 1rem;
-            line-height: 1;
-            margin-bottom: 30px;
-          }
-          p {
-            font-size: 1rem;
-            line-height: 1.6;
-          }
-        }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
 
-        &.about1 {
-          .about__img {
-            flex: 0 0 100%;
-          }
-          .about__txt {
-            flex: 0 0 100%;
-            // margin-top: 2rem;
-          }
-        }
+    &:nth-child(1) {
+      .about__img {
+        flex: 0 0 100%;
+      }
 
-        &.about2 {
-          .about__img {
-            flex: 0 0 64%;
-          }
-          .about__txt {
-            flex: 0 0 30%;
-          }
-        }
+      .about__txt {
+        flex: 0 0 100%;
 
-        &.about3 {
-          flex-direction: row-reverse;
-
-          .about__img {
-            flex: 0 0 54%;
-          }
-          .about__txt {
-            flex: 0 0 40%;
-          }
+        h3 {
+          margin-top: 2rem;
         }
       }
     }
+
+    &:nth-child(2) {
+      .about__img {
+        flex: 0 0 64%;
+      }
+
+      .about__txt {
+        flex: 0 0 30%;
+      }
+    }
+
+    &:nth-child(3) {
+      flex-direction: row-reverse;
+
+      .about__img {
+        flex: 0 0 54%;
+      }
+
+      .about__txt {
+        flex: 0 0 40%;
+      }
+    }
+  }
+}
+
+.about__cont.light {
+  background-color: var(--light_bg);
+
+  .about {
+    color: var(--black);
   }
 }
 
@@ -91,13 +79,19 @@
       flex-direction: column;
       padding-bottom: 20vh;
 
-      &.about3 {
-        flex-direction: column !important;
-      }
-
-      .about__txt {
-        margin-top: 2rem;
+      &:nth-child(3) {
+        flex-direction: column;
       }
     }
+    h3 {
+      margin-top: 30px;
+    }
   }
+}
+
+//
+//애니메이션
+.about__inner {
+  opacity: 0;
+  transform: translateY(50px);
 }

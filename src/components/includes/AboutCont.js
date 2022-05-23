@@ -1,5 +1,19 @@
 import React from "react";
 
+function AboutInfo({ title, desc, image }) {
+  return (
+    <div className="about">
+      <figure className="about__img">
+        <img src={image} alt={title} />
+      </figure>
+      <div className="about__txt">
+        <h3>{title}</h3>
+        <p>{desc}</p>
+      </div>
+    </div>
+  );
+}
+
 const aboutText = [
   {
     title: "꿈을 설계하고 디자인 하다.",
@@ -18,57 +32,59 @@ const aboutText = [
   },
 ];
 
-function InnerCont1() {
-  return (
-    <div className="about about1">
-      <figure className="about__img">
-        <img src={aboutText[0].image} alt="꿈을 설계하고 디자인하다" />
-      </figure>
-      <div className="about__txt">
-        <h3>{aboutText[0].title}</h3>
-        <p>{aboutText[0].desc}</p>
-      </div>
-    </div>
-  );
-}
-function InnerCont2() {
-  return (
-    <div className="about about2">
-      <figure className="about__img">
-        <img src={aboutText[1].image} alt="열심히 할수록 기회는 따른다" />
-      </figure>
-      <div className="about__txt">
-        <h3>{aboutText[1].title}</h3>
-        <p>{aboutText[1].desc}</p>
-      </div>
-    </div>
-  );
-}
-function InnerCont3() {
-  return (
-    <div className="about about3">
-      <figure className="about__img">
-        <img src={aboutText[2].image} alt="나에게 정직하다" />
-      </figure>
-      <div className="about__txt">
-        <h3>{aboutText[2].title}</h3>
-        <p>{aboutText[2].desc}</p>
-      </div>
-    </div>
-  );
-}
+// function InnerCont1() {
+//   return (
+//     <div className="about about1">
+//       <figure className="about__img">
+//         <img src={aboutText[0].image} alt="꿈을 설계하고 디자인하다" />
+//       </figure>
+//       <div className="about__txt">
+//         <h3>{aboutText[0].title}</h3>
+//         <p>{aboutText[0].desc}</p>
+//       </div>
+//     </div>
+//   );
+// }
+// function InnerCont2() {
+//   return (
+//     <div className="about about2">
+//       <figure className="about__img">
+//         <img src={aboutText[1].image} alt="열심히 할수록 기회는 따른다" />
+//       </figure>
+//       <div className="about__txt">
+//         <h3>{aboutText[1].title}</h3>
+//         <p>{aboutText[1].desc}</p>
+//       </div>
+//     </div>
+//   );
+// }
+// function InnerCont3() {
+//   return (
+//     <div className="about about3">
+//       <figure className="about__img">
+//         <img src={aboutText[2].image} alt="나에게 정직하다" />
+//       </figure>
+//       <div className="about__txt">
+//         <h3>{aboutText[2].title}</h3>
+//         <p>{aboutText[2].desc}</p>
+//       </div>
+//     </div>
+//   );
+// }
 
-function AboutCont() {
+function AboutCont(props) {
   return (
-    <section className="about__cont">
+    <section className={`about__cont ${props.color}`}>
       <div className="container">
         <div className="about__inner">
-          <InnerCont1></InnerCont1>
-          <InnerCont2></InnerCont2>
-          <InnerCont3></InnerCont3>
-          {/* <div className="about"></div> */}
-          {/* <div className="about">2</div> */}
-          {/* <div className="about">3</div> */}
+          {aboutText.map((txt) => (
+            <AboutInfo
+              key={txt.title}
+              title={txt.title}
+              desc={txt.desc}
+              image={txt.image}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -115,7 +115,7 @@ class Portfolio extends React.Component {
           <>
             <Header />
             <Contents>
-              <Title title={["Portfolio", "book"]} />
+              <Title title={["Portfolio", "Site"]} />
               <Portcont ports={ports} />
               <Touch />
             </Contents>

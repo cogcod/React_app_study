@@ -20,4 +20,11 @@ function ReferCont({ id, title, desc, use }) {
   );
 }
 
+// ReferCont.propType = {
+//   id: propType.number.isRequired,
+//   title: propType.string.isRequired,
+//   desc: propType.string.isRequired,
+//   use: propType.string.isRequired,
+// };
+
 export default ReferCont;

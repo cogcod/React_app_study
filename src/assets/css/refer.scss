@@ -11,7 +11,7 @@
 }
 
 .refer__list {
-  border-top: 2px solid var(--light_bg);
+  border-top: 1px solid var(--light_bg);
   border-bottom: 1px solid var(--light_bg);
 
   a {
@@ -49,32 +49,21 @@
   }
 }
 
+// Tab Menu
 .refer__table {
-  margin-top: 200px;
   color: var(--white);
   font-family: var(--subKor_font);
-
-  h3 {
-    font-size: 3rem;
-  }
-  p {
-    background-color: var(--light_bg);
-    color: var(--black);
-    padding: 1.4em;
-  }
 
   .table {
     color: var(--white);
     font-family: var(--subKor_font);
     border: 1px solid var(--light_bg);
-    margin-top: 0.5em;
 
-    th,
-    td {
+    th {
+      font-size: 2rem;
       font-weight: normal;
-      padding: 1em;
-      border-bottom: 1px solid var(--light_bg);
-      border-left: 1px solid var(--light_bg);
+      padding: 0.5em;
+      cursor: pointer;
     }
   }
 }
@@ -88,17 +77,18 @@
     }
 
     table {
-      border-color: var(—black);
-      color: var(—black);
+      border-color: var(--black);
+      color: var(--black);
 
       td {
-        border-color: var(—black);
+        border-color: var(--black);
       }
     }
   }
 }
 
-애니메이션 .refer__inner {
-  opacity: 0;
-  transform: translateY(50px);
-}
+//애니메이션
+// .refer__inner {
+//   opacity: 0;
+//   transform: translateY(50px);
+// }
