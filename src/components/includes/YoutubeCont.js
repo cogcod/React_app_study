@@ -1,6 +1,6 @@
 import React from "react";
 
-function YoutubeCont() {
+function YoutubeCont(props) {
   return <div>YoutubeCont</div>;
 }
 
