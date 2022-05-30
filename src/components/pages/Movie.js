@@ -7,7 +7,7 @@ import MovieCont from "../includes/MovieCont";
 import Touch from "../layout/Touch";
 import MovieSearch from "../includes/MovieSearch";
 
-function Movie() {
+function Movie(props) {
   const [videos, setVideos] = useState([]);
 
   const search = (query) => {
@@ -40,7 +40,10 @@ function Movie() {
       .catch((error) => console.log("error", error));
   }, []);
 
-  // console.log(videos);
+  // console.log(onSearch.ref);
+  // console.clear();
+
+  const movieNofound = `${props.videos}`;
 
   return (
     <>
@@ -52,6 +55,19 @@ function Movie() {
             <div className="movie__inner">
               <MovieSearch onSearch={search} />
               <MovieCont videos={videos} />
+
+              {/* {movieNofound === "" ? (
+                <p>대체 텍스트가 없습니다.</p>
+              ) : (
+                <MovieCont videos={videos} />
+              )} */}
+
+              {/* if({movieNofound === ''} ){
+                return <p>대체 텍스트가 없습니다.</p>;
+                }else
+              { 
+              return <MovieCont videos={videos} />;
+              } */}
             </div>
           </div>
         </section>
