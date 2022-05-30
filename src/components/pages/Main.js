@@ -25,62 +25,85 @@ import { gsap } from "gsap";
 class Main extends React.Component {
   state = {
     isLoading: true,
-    // ports: [],
   };
 
   mainAnimation = () => {
     setTimeout(() => {
-      gsap.to("#header", { duration: 0.8, top: 0 });
-      gsap.to("#footer", { duration: 0.8, bottom: 0, delay: 0.2 });
-      gsap.to(".cont__title strong", {
+      gsap.to("#header", {
         duration: 0.8,
-        y: 0,
-        opacity: 1,
-        delay: 1,
-        ease: "power4.out",
+        top: 0,
       });
-    });
-    gsap.to(
-      ".main__inner",
-      {
-        duration: 0.5,
-        y: 0,
+      gsap.to("#footer", {
+        duration: 0.8,
+        bottom: 0,
+        delay: 0.2,
+      });
+      gsap.to(".main__inner > div:nth-child(1)", {
+        duration: 1.0,
         opacity: 1,
+        y: 0,
+        delay: 1.4,
+        ease: "elastic.out(1, 0.3)",
+      });
+      gsap.to(".main__inner > div:nth-child(2)", {
+        duration: 1.0,
+        opacity: 1,
+        y: 0,
+        delay: 1.6,
+        ease: "elastic.out(1, 0.3)",
+      });
+      gsap.to(".main__inner > div:nth-child(3)", {
+        duration: 1.0,
+        opacity: 1,
+        y: 0,
         delay: 1.8,
-        ease: "power4.out",
-      },
-      10
-    );
+        ease: "elastic.out(1, 0.3)",
+      });
+      gsap.to(".main__inner > div:nth-child(4)", {
+        duration: 1.0,
+        opacity: 1,
+        y: 0,
+        delay: 2.0,
+        ease: "elastic.out(1, 0.3)",
+      });
+    }, 10);
   };
 
-  getPorts = async () => {
-    const {
-      data: {
-        data: { ports },
-      },
-    } = await axios.get(
-      "https://webstoryboy.github.io/dothome1/portfolio.json"
-    );
-
-    //console.log(ports);
+  getSite = () => {
     setTimeout(() => {
-      console.log("첫번째 시작");
-      this.setState({ isLoading: false, ports: ports });
+      console.log("두번째 시작");
+      this.setState({ isLoading: false });
+      this.mainAnimation();
+    }, 1600);
+  };
+
+  getSite = () => {
+    setTimeout(() => {
+      console.log("두번째 시작");
+      this.setState({ isLoading: false });
       this.mainAnimation();
     }, 1600);
   };
 
   componentDidMount() {
     setTimeout(() => {
+      document.getElementById("loading").classList.remove("loading__active");
+      document.querySelector("body").style.background = "#000";
+      this.getSite();
+    }, 2000);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
       console.log("두번째 시작");
       document.getElementById("loading").classList.remove("loading__active");
-      this.getPorts();
+      document.querySelector("body").style.background = "#000";
+      this.getSite();
     }, 2000);
   }
 
   render() {
-    const { isLoading, ports } = this.state;
-    console.log(ports);
+    const { isLoading } = this.state;
 
     return (
       <>
