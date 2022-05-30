@@ -4,7 +4,6 @@ import Footer from "../layout/Footer";
 import Contents from "../layout/Contents";
 import MainCont from "../includes/MainCont";
 import Loading from "../includes/Loading";
-import axios from "axios";
 import { gsap } from "gsap";
 
 // function Main() {
@@ -77,25 +76,8 @@ class Main extends React.Component {
     }, 1600);
   };
 
-  getSite = () => {
-    setTimeout(() => {
-      console.log("두번째 시작");
-      this.setState({ isLoading: false });
-      this.mainAnimation();
-    }, 1600);
-  };
-
   componentDidMount() {
     setTimeout(() => {
-      document.getElementById("loading").classList.remove("loading__active");
-      document.querySelector("body").style.background = "#000";
-      this.getSite();
-    }, 2000);
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      console.log("두번째 시작");
       document.getElementById("loading").classList.remove("loading__active");
       document.querySelector("body").style.background = "#000";
       this.getSite();

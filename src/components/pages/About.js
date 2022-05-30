@@ -73,7 +73,6 @@ class About extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       document.getElementById("loading").classList.remove("loading__active");
-      // document.querySelector("body").style.background = "#F0EEEB";
       this.getSite();
     }, 2000);
   }
