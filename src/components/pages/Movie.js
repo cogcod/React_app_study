@@ -6,9 +6,55 @@ import Title from "../layout/Title";
 import MovieCont from "../includes/MovieCont";
 import Touch from "../layout/Touch";
 import MovieSearch from "../includes/MovieSearch";
+import Loading from "../includes/Loading";
+import { gsap } from "gsap";
 
-function Movie(props) {
+function Movie() {
   const [videos, setVideos] = useState([]);
+
+  const mainAnimation = () => {
+    setTimeout(() => {
+      document.getElementById("loading").classList.remove("loading__active");
+
+      gsap.to("#header", {
+        duration: 0.8,
+        top: 0,
+      });
+      gsap.to("#footer", {
+        duration: 0.8,
+        bottom: 0,
+        delay: 0.2,
+      });
+      gsap.to(".cont__title strong", {
+        duration: 0.7,
+        y: 0,
+        opacity: 1,
+        delay: 1.0,
+        ease: "power4.out",
+      });
+      gsap.to(".cont__title em", {
+        duration: 0.7,
+        y: 0,
+        opacity: 1,
+        delay: 1.3,
+        ease: "power4.out",
+      });
+      gsap.to(".youtube__search", {
+        duration: 0.7,
+        y: 0,
+        opacity: 1,
+        delay: 1.5,
+        ease: "power4.out",
+      });
+      gsap.to(".main__inner", {
+        duration: 0.7,
+        y: 0,
+        opacity: 1,
+        delay: 1.5,
+        ease: "power4.out",
+      });
+    }, 2000);
+  };
 
   const search = (query) => {
     const requestOptions = {
@@ -36,17 +82,18 @@ function Movie(props) {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setVideos(result.results))
+      .then((result) => {
+        setVideos(result.results);
+        mainAnimation();
+      })
       .catch((error) => console.log("error", error));
   }, []);
 
-  // console.log(onSearch.ref);
   // console.clear();
-
-  const movieNofound = `${props.videos}`;
 
   return (
     <>
+      <Loading />
       <Header />
       <Contents>
         <Title title={["Movie", "search"]} />
@@ -55,19 +102,6 @@ function Movie(props) {
             <div className="movie__inner">
               <MovieSearch onSearch={search} />
               <MovieCont videos={videos} />
-
-              {/* {movieNofound === "" ? (
-                <p>대체 텍스트가 없습니다.</p>
-              ) : (
-                <MovieCont videos={videos} />
-              )} */}
-
-              {/* if({movieNofound === ''} ){
-                return <p>대체 텍스트가 없습니다.</p>;
-                }else
-              { 
-              return <MovieCont videos={videos} />;
-              } */}
             </div>
           </div>
         </section>
