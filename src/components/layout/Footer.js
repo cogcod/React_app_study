@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
 function Footer() {
   return (
     <footer id="footer">
       <div>
         <h4>email</h4>
-        <a href="mailto:webstroyboy@naver.com">webstoryboy@naver.com</a>
+        <a href="mailto:webstroyboy@naver.com">seolyura@naver.com</a>
       </div>
       <div>
         <h4>Kakao</h4>
-        <a href="/">webstupis</a>
+        <a href="/">seol_01190</a>
       </div>
       <div>
         <h4>social</h4>
@@ -32,7 +32,7 @@ function Footer() {
         </ul>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
